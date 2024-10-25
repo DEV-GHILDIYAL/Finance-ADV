@@ -1,0 +1,41 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px; /* Add padding for aesthetics */
+    box-sizing: border-box; /* Include padding in height calculation */
+  }
+  
+  .charts-container {
+    display: flex;
+    justify-content: space-around; /* Space charts evenly */
+    width: 100%; /* Full width of the container */
+    max-height: 60%; /* Limit height to leave room for other elements */
+  }
+  
+  .chart {
+    width: 40%; /* Adjust width of each chart */
+    max-height: 100%; /* Ensure it doesn’t exceed its container */
+  }
+  
+  .data-section {
+    margin-top: 20px; /* Space above data overview */
+    text-align: center; /* Center text */
+  }
+  
+  .create-new-button {
+    margin-top: auto; /* Push button to the bottom */
+    padding: 10px 20px; /* Button padding */
+    background-color: #36A2EB; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+  }
+  
+  .create-new-button:hover {
+    background-color: #2c8fdb; /* Darker shade on hover */
+  }
+  

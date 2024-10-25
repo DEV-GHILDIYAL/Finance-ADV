@@ -1,25 +1,23 @@
 // Sidebar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Sidebar.css';
+import './Sidebar.css'; // Assuming the CSS is in the same folder
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="sidebar-header">
-        <h2>MyApp</h2>
-      </div>
-      
-      <div className="sidebar-menu">
-        <Link to="/" className="sidebar-item">Home</Link>
-        <Link to="/dashboard" className="sidebar-item">Dashboard</Link>
-        <Link to="/profile" className="sidebar-item">Profile</Link>
-        <Link to="/settings" className="sidebar-item">Settings</Link>
-      </div>
-
+      <h2>My App</h2>
+      <nav>
+        <ul>
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/dashboard">Dashboard</Link></li>
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/settings">Settings</Link></li>
+        </ul>
+      </nav>
       <div className="sidebar-footer">
-        <Link to="/login" className="sidebar-button">Login</Link>
-        <Link to="/register" className="sidebar-button">Register</Link>
+        <Link to="/login" className="footer-link">Login</Link>
+        <Link to="/register" className="footer-link">Register</Link>
       </div>
     </div>
   );
