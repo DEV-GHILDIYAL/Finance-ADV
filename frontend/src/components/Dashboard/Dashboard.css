@@ -6,26 +6,60 @@
     height: 100vh; /* Full height of the viewport */
     padding: 20px; /* Add padding for aesthetics */
     box-sizing: border-box; /* Include padding in height calculation */
-  }
-  
-  .charts-container {
+}
+
+.charts-container {
     display: flex;
-    justify-content: space-around; /* Space charts evenly */
+    justify-content: center; /* Center charts */
     width: 100%; /* Full width of the container */
     max-height: 60%; /* Limit height to leave room for other elements */
-  }
-  
-  .chart {
-    width: 40%; /* Adjust width of each chart */
-    max-height: 100%; /* Ensure it doesn’t exceed its container */
-  }
-  
-  .data-section {
+}
+
+.chart {
+    position: relative; /* Allow absolute positioning for the chart wrapper */
+    width: 80%; /* Adjust width of each chart */
+    max-height: 400px; /* Set a maximum height for the chart */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Column layout for title and chart */
+    align-items: center; /* Center items horizontally */
+}
+
+.chart-wrapper {
+    width: 100%;
+    height: 300px; /* Fixed height for the chart */
+    display: flex; /* Use flexbox to center the chart */
+    justify-content: center; /* Center the chart horizontally */
+    align-items: center; /* Center the chart vertically */
+}
+
+.chart-wrapper canvas {
+    max-width: 100%; /* Prevent charts from exceeding container width */
+    max-height: 100%; /* Prevent charts from exceeding container height */
+}
+
+.data-section {
     margin-top: 20px; /* Space above data overview */
     text-align: center; /* Center text */
-  }
-  
-  .create-new-button {
+    width: 100%; /* Full width for the data section */
+}
+
+.stocks-table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+.stocks-table th,
+.stocks-table td {
+    border: 1px solid #ddd; /* Add border to table cells */
+    padding: 8px; /* Add padding to cells */
+    text-align: left; /* Align text to the left */
+}
+
+.stocks-table th {
+    background-color: #f2f2f2; /* Background color for table headers */
+}
+
+.create-new-button {
     margin-top: auto; /* Push button to the bottom */
     padding: 10px 20px; /* Button padding */
     background-color: #36A2EB; /* Button color */
@@ -33,9 +67,15 @@
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor */
-  }
-  
-  .create-new-button:hover {
+}
+
+.create-new-button:hover {
     background-color: #2c8fdb; /* Darker shade on hover */
-  }
-  
+}
+
+.chart-toggle-button {
+    align-self: center; /* Center the button vertically */
+    margin: 0 10px; /* Add margin to left and right */
+    padding: 10px; /* Add padding to button */
+    cursor: pointer; /* Pointer cursor */
+}

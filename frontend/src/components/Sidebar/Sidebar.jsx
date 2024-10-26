@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'; // Assuming the CSS is in the same folder
 
-const Sidebar = () => {
+const Sidebar = ({ loggedIn }) => {
   return (
     <div className="sidebar">
       <h2>My App</h2>
@@ -17,8 +17,14 @@ const Sidebar = () => {
         </ul>
       </nav>
       <div className="sidebar-footer">
-        <Link to="/login" className="footer-link">Login</Link>
-        <Link to="/register" className="footer-link">Register</Link>
+        {loggedIn ? (
+          <Link to="/profile" className="footer-link">Profile</Link>
+        ) : (
+          <>
+            <Link to="/login" className="footer-link">Login</Link>
+            <Link to="/register" className="footer-link">Register</Link>
+          </>
+        )}
       </div>
     </div>
   );
