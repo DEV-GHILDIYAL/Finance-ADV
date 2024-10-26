@@ -1,9 +1,16 @@
 // Profile.jsx
 import React from 'react';
-import './Profile.css'; // Assuming you have a CSS file for styling
-import {Link} from 'react-router-dom'
+import './Profile.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Logic for logging out the user goes here (e.g., clearing auth token, user state)
+    navigate('/login'); // Redirect to login page after logout
+  };
+
   return (
     <div className="profile-container">
       <h2>User Profile</h2>
@@ -30,8 +37,13 @@ const Profile = () => {
         </div>
       </div>
       <div className="profile-actions">
-        <button className="change-password-btn"><Link to="/resetpassword">reset-password</Link></button>
-        <button className="risk-allocation-btn"><Link to="/riskToleranceTest">Find your Risk Allocation</Link></button>
+        <button className="change-password-btn">
+          <Link to="/resetpassword">Reset Password</Link>
+        </button>
+        <button className="risk-allocation-btn">
+          <Link to="/riskToleranceTest">Find Your Risk Allocation</Link>
+        </button>
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

@@ -18,9 +18,6 @@
     flex-direction: column; /* Stack items vertically */
 }
 
-.form-group {
-    margin-bottom: 20px; /* Space between form groups */
-}
 
 label {
     font-weight: 600; /* Bolder label for emphasis */

@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center; /* Center items horizontally */
     justify-content: flex-start; /* Align items to the top */
-    height: 100vh; /* Full height of the viewport */
-    padding: 20px; /* Add padding for aesthetics */
+    height: auto; /* Full height of the viewport */
+    padding: 10px; /* Add padding for aesthetics */
     box-sizing: border-box; /* Include padding in height calculation */
 }
 
@@ -38,7 +38,7 @@
 }
 
 .data-section {
-    margin-top: 20px; /* Space above data overview */
+    margin-top: 0px; /* Space above data overview */
     text-align: center; /* Center text */
     width: 100%; /* Full width for the data section */
 }
@@ -60,7 +60,7 @@
 }
 
 .create-new-button {
-    margin-top: auto; /* Push button to the bottom */
+    margin-top: 0px; /* Push button to the bottom */
     padding: 10px 20px; /* Button padding */
     background-color: #36A2EB; /* Button color */
     color: white; /* Button text color */

@@ -14,10 +14,6 @@
     color: #343a40; /* Dark color for the title */
   }
   
-  .form-group {
-    margin-bottom: 15px; /* Space between form fields */
-  }
-  
   .form-group label {
     display: block; /* Block display for labels */
     margin-bottom: 5px; /* Space below labels */
