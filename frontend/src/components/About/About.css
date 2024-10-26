@@ -1,0 +1,16 @@
+.about-container {
+    padding: 20px;
+    height: 100vh; /* Full height of the viewport */
+    box-sizing: border-box; /* Include padding in height calculation */
+    background-color: #f9f9f9; /* Light background color */
+  }
+  
+  .about-container h2 {
+    color: #333; /* Darker color for headings */
+  }
+  
+  .about-container p {
+    line-height: 1.6; /* Improve readability */
+    margin-bottom: 15px; /* Space between paragraphs */
+  }
+  

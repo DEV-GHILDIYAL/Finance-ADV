@@ -9,10 +9,11 @@ const Sidebar = () => {
       <h2>My App</h2>
       <nav>
         <ul>
-          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/dashboard">Dashboard</Link></li>
           <li><Link to="/about">About Us</Link></li>
           <li><Link to="/settings">Settings</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
         </ul>
       </nav>
       <div className="sidebar-footer">

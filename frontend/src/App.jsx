@@ -6,6 +6,10 @@ import Home from './pages/HomePage'; // Make sure to import HomePage component
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import SettingsPage from './pages/SettingsPage';
+import ProfileForm from './components/FinancialProfile/ProfileForm';
 
 const App = () => {
   return (
@@ -14,13 +18,14 @@ const App = () => {
         <Sidebar />
         <div className="content">
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/about" element={<h2>About Us</h2>} />
-            <Route path="/settings" element={<h2>Settings</h2>} />
+            <Route path="/about" element={<AboutPage/>} />
+            <Route path="/settings" element={<SettingsPage/>} />
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage/>} />
-            <Route path="/" element={<h2>Welcome!</h2>} />
+            <Route path="/contact" element={<ContactPage/>} />
+            <Route path='/financialProfile' element={<ProfileForm/>} />
           </Routes>
         </div>
       </div>

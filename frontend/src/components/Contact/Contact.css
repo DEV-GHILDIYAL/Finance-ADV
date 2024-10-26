@@ -1,0 +1,74 @@
+.contact-container {
+    padding: 40px 20px; /* Increased padding for better spacing */
+    max-width: 600px; /* Limit width for better focus */
+    margin: auto; /* Center the form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #ffffff; /* White background for contrast */
+}
+
+.contact-container h2 {
+    color: #333; /* Darker color for headings */
+    text-align: center; /* Center heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.contact-form {
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between form groups */
+}
+
+label {
+    font-weight: 600; /* Bolder label for emphasis */
+    color: #555; /* Lighter dark color for labels */
+}
+
+input,
+textarea {
+    width: 100%; /* Full width */
+    padding: 15px; /* More padding for comfort */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #36A2EB; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+textarea {
+    resize: none; /* Disable resizing */
+    height: 150px; /* Adjusted height for text area */
+}
+
+.contact-button {
+    padding: 12px; /* Button padding */
+    background-color: #36A2EB; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth background transition */
+    font-size: 16px; /* Button text size */
+}
+
+.contact-button:hover {
+    background-color: #2c8fdb; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .contact-container {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .contact-button {
+        font-size: 14px; /* Smaller button text for mobile */
+    }
+}

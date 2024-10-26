@@ -3,6 +3,7 @@ import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'; // Automatically registers all necessary components
 import './Dashboard.css'; // Ensure to import the CSS for styling
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   const data1 = {
@@ -44,7 +45,7 @@ const Dashboard = () => {
         <h3>Data Overview</h3>
         <p>This section can contain some data or statistics related to the charts above.</p>
       </div>
-      <button className="create-new-button">Create New</button>
+      <Link to="/financialProfile" className="create-new-button">Create New</Link>
     </div>
   );
 };
