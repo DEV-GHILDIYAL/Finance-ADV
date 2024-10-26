@@ -7,24 +7,23 @@ const SetPass = () => {
   const { email, ltoken } = useParams(); // Get email and ltoken from URL
   const navigate = useNavigate(); // Initialize useNavigate for navigation
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state for button
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false); 
   useEffect(() => {
     console.log("Params:", email, ltoken);
   }, [email, ltoken]);
   
   const handleSetPassword = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    if (!password) {
-      toast.error("Please enter a new password!", { autoClose: 1000 });
-      return;
-    }
-
+    e.preventDefault(); 
     if (password.length < 6) {
       toast.error("Password must be at least 8 characters long!", { autoClose: 1000 });
       return;
     }
-
-    setLoading(true); // Set loading to true
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+    setLoading(true); 
 
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/setpassword/${email}/${ltoken}`, {
@@ -41,7 +40,7 @@ const SetPass = () => {
         toast.success("Password set successfully!", { autoClose: 1000 });
         setTimeout(() => {
           navigate("/"); // Redirect to the login page
-        }, 1500);
+        }, 1200);
       } else {
         toast.error(data.status || "Failed to set password!", { autoClose: 1000 });
       }
@@ -65,6 +64,16 @@ const SetPass = () => {
               id="newPassword"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="confirmnewPassword">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirmnewPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>

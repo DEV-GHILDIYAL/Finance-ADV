@@ -1,11 +1,14 @@
 // Login.jsx
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from react-router-dom\
+import { toast } from 'react-toastify'; // Import toast for notifications
 import './Login.css'; // Make sure to import the CSS
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
 
   const handleSubmit =async (e) => {
     e.preventDefault();
@@ -21,7 +24,11 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('token', data.token); // Adjust this line based on your server response structure
+        toast.success("Login successful!", { autoClose: 1000 });
+        localStorage.setItem('token', data.token); 
+        setTimeout(() => {
+          navigate("/"); // Redirect to the login page
+        }, 1000);
       } else {
         console.log()
       }

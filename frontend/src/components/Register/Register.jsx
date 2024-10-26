@@ -1,18 +1,26 @@
 // Register.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './Register.css'; // Make sure to import the CSS
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from react-router-dom
+import { toast } from 'react-toastify'; // Import toast for notifications
+import './Register.css'; // Import the CSS
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if password and confirm password match
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+
     try {
-      e.preventDefault();
-      console.log(`${import.meta.env.VITE_BACKEND_URL}`)
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/register`, {
         method: "POST",
         headers: {
@@ -24,13 +32,20 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("Registration successful:", data);
-        // Optionally redirect or notify the user
+        toast.success("Registration successful!", { autoClose: 1000 });
+        setTimeout(() => {
+          navigate("/login"); // Redirect to the login page
+        }, 1000);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
       } else {
-        console.log("Registration failed")
+        toast.error(data.message || "Registration failed");
       }
     } catch (error) {
       console.error("Error during registration:", error);
+      toast.error("An error occurred. Please try again.");
     }
   };
 
@@ -66,6 +81,7 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            minLength={6} // Minimum password length
           />
         </div>
         <div className="form-group">
