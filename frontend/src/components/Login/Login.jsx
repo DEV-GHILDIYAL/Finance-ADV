@@ -1,17 +1,33 @@
 // Login.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, Navigate } from 'react-router-dom'; // Import Link from react-router-dom
 import './Login.css'; // Make sure to import the CSS
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    // Add your login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token); // Adjust this line based on your server response structure
+      } else {
+        console.log()
+      }
+    } catch (error) {
+      console.error("Error during Login:", error);
+    }
   };
 
   return (
@@ -42,6 +58,7 @@ const Login = () => {
       </form>
       <div className="footer-links">
         <p>Don't have an account? <Link to="/register">Register</Link></p>
+        <p>Forgot password? <Link to="/resetpassword">resetpassword</Link></p>
       </div>
     </div>
   );
