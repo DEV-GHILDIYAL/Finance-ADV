@@ -11,6 +11,9 @@ import ContactPage from './pages/ContactPage';
 import SettingsPage from './pages/SettingsPage';
 import ProfileForm from './components/FinancialProfileForm/FinancialProfileForm';
 import ProfilePage from './pages/ProfilePage';
+import ProfileForm from './components/FinancialProfile/ProfileForm';
+import ResetPassword from './pages/ResetPassword';
+import SetPass from './components/ResetPassword/setPass';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(true); // Replace with actual authentication logic
@@ -21,6 +24,8 @@ const App = () => {
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            {/* <Route path="/dashboard" element={<ProtectedRoute element={<DashboardPage />} />} /> */}
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/about" element={<AboutPage/>} />
             <Route path="/settings" element={<SettingsPage/>} />
@@ -29,6 +34,9 @@ const App = () => {
             <Route path="/contact" element={<ContactPage/>} />
             <Route path='/financialProfile' element={<ProfileForm/>} />
             <Route path='/profile' element={<ProfilePage/>}/>
+            <Route path="/resetpassword" element={<ResetPassword/>} />
+            <Route path="/auth/setpassword/:email/:ltoken" element={<SetPass />} />
+            <Route path="/" element={<h2>Welcome!</h2>} />
           </Routes>
         </div>
       </div>
