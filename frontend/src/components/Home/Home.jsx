@@ -21,8 +21,8 @@ const Home = () => {
         <h2>Our Features</h2>
         <div className="scrolling-container">
           {/* Duplicate feature array to achieve seamless scroll */}
-          {[...features, ...features].map((feature) => (
-            <div key={feature.id} className="feature-card">
+          {[...features, ...features].map((feature, index) => (
+            <div key={feature.id + features.length * (index < features.length ? 0 : 1)} className="feature-card">
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
               <button className="card-button">Learn More</button>

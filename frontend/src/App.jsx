@@ -13,6 +13,7 @@ import FinancialProfileForm from './components/FinancialProfileForm/FinancialPro
 import ProfilePage from './pages/ProfilePage';
 import ResetPassword from './pages/ResetPassword';
 import SetPass from './components/ResetPassword/setPass';
+import RiskToleranceQuiz from './components/RiskToleranceQuiz/RiskToleranceQuiz';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             <Route path='/profile' element={<ProfilePage/>}/>
             <Route path="/resetpassword" element={<ResetPassword/>} />
             <Route path="/auth/setpassword/:email/:ltoken" element={<SetPass />} />
+            <Route path='/riskToleranceTest' element={<RiskToleranceQuiz/>}/>
 
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage/>} />

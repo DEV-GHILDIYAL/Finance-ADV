@@ -69,8 +69,10 @@
   }
   
   .content {
-    margin-left: 270px; /* Leave space for sidebar */
+    margin-left: 260px; 
+    margin-right: 5px;
+    margin-top: 5px;
     background-color: #f8f9fa; /* Light background for content */
-    min-height: 100vh; /* Ensure it takes full height */
+    height: 100vh; /* Ensure it takes full height */
   }
   

@@ -31,7 +31,7 @@ const Profile = () => {
       </div>
       <div className="profile-actions">
         <button className="change-password-btn"><Link to="/resetpassword">reset-password</Link></button>
-        <button className="risk-allocation-btn"><Link to="/dashboard">Find your Risk Allocation</Link></button>
+        <button className="risk-allocation-btn"><Link to="/riskToleranceTest">Find your Risk Allocation</Link></button>
       </div>
     </div>
   );
