@@ -9,14 +9,13 @@ import DashboardPage from './pages/DashboardPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SettingsPage from './pages/SettingsPage';
-import ProfileForm from './components/FinancialProfileForm/FinancialProfileForm';
+import FinancialProfileForm from './components/FinancialProfileForm/FinancialProfileForm';
 import ProfilePage from './pages/ProfilePage';
-import ProfileForm from './components/FinancialProfile/ProfileForm';
 import ResetPassword from './pages/ResetPassword';
 import SetPass from './components/ResetPassword/setPass';
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(true); // Replace with actual authentication logic
+  const [loggedIn, setLoggedIn] = useState(false); // Replace with actual authentication logic
   return (
     <Router>
       <div className="app-container"> {/* Container for sidebar and content */}
@@ -32,7 +31,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/register" element={<RegisterPage/>} />
             <Route path="/contact" element={<ContactPage/>} />
-            <Route path='/financialProfile' element={<ProfileForm/>} />
+            <Route path='/financialProfile' element={<FinancialProfileForm/>} />
             <Route path='/profile' element={<ProfilePage/>}/>
             <Route path="/resetpassword" element={<ResetPassword/>} />
             <Route path="/auth/setpassword/:email/:ltoken" element={<SetPass />} />
