@@ -9,13 +9,29 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your registration logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+  const handleSubmit =async (e) => {
+    try {
+      e.preventDefault();
+      console.log(`${import.meta.env.VITE_BACKEND_URL}`)
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Registration successful:", data);
+        // Optionally redirect or notify the user
+      } else {
+        console.log("Registration failed")
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
