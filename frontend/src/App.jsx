@@ -15,11 +15,10 @@ import ResetPassword from './pages/ResetPassword';
 import SetPass from './components/ResetPassword/setPass';
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false); // Replace with actual authentication logic
   return (
     <Router>
       <div className="app-container"> {/* Container for sidebar and content */}
-        <Sidebar loggedIn={loggedIn} />
+        <Sidebar />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -28,13 +27,14 @@ const App = () => {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/about" element={<AboutPage/>} />
             <Route path="/settings" element={<SettingsPage/>} />
-            <Route path="/login" element={<LoginPage/>} />
-            <Route path="/register" element={<RegisterPage/>} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path='/financialProfile' element={<FinancialProfileForm/>} />
             <Route path='/profile' element={<ProfilePage/>}/>
             <Route path="/resetpassword" element={<ResetPassword/>} />
             <Route path="/auth/setpassword/:email/:ltoken" element={<SetPass />} />
+
+            <Route path="/login" element={<LoginPage/>} />
+            <Route path="/register" element={<RegisterPage/>} />
             <Route path="/" element={<h2>Welcome!</h2>} />
           </Routes>
         </div>

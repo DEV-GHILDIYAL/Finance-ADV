@@ -1,9 +1,17 @@
 // Sidebar.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Sidebar.css'; // Assuming the CSS is in the same folder
+import { Link, useNavigate } from 'react-router-dom';
+import './Sidebar.css';
 
-const Sidebar = ({ loggedIn }) => {
+const Sidebar = () => {
+  const token = localStorage.getItem('token'); 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token on logout
+    navigate('/login'); // Redirect to login page
+  };
+
   return (
     <div className="sidebar">
       <h2>My App</h2>
@@ -17,8 +25,11 @@ const Sidebar = ({ loggedIn }) => {
         </ul>
       </nav>
       <div className="sidebar-footer">
-        {loggedIn ? (
-          <Link to="/profile" className="footer-link">Profile</Link>
+        {token ? (
+          <>
+            <Link to="/profile" className="footer-link">Profile</Link>
+            <button onClick={handleLogout} className="footer-link">Logout</button>
+          </>
         ) : (
           <>
             <Link to="/login" className="footer-link">Login</Link>
